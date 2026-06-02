@@ -13,19 +13,12 @@ public:
     // Pure virtual: Shape is abstract and cannot be instantiated.
 
     // Each derived class MUST override area(). (Leave this line.)
-
     virtual double area() const = 0;
-
     // describe() is virtual with a default body — leave as is.
-
     virtual std::string describe() const {
-
         return name + " with area " + std::to_string(area());
-
     }
-
     std::string getName() const { return name; }
-
 };
 
 // --- Derived class: Circle --------------------------------------
@@ -48,61 +41,34 @@ public:
 class Rectangle : public Shape {
 protected:
     double width;
-
     double height;
-
 public:
-
     // TODO 4: Write the constructor.
-
     //   - Call Shape with the name "Rectangle".
-
     //   - Store width and height.
-
     Rectangle(double w, double h)
-
         : Shape("Rectangle"), width(w), height(h) {
-
     }
-
     // TODO 5: Override area().  Area of a rectangle = width * height.
-
     double area() const override {
-
         return width * height;
-
     }
-
 };
-
 // --- Derived class: Square (inherits from Rectangle) ------------
-
 class Square : public Rectangle {
-
 public:
-
     // TODO 6: Write the constructor.
-
     //   - A square is a rectangle whose width == height == side.
-
     //   - Call the Rectangle constructor with (side, side).
 
     //   - Then set name = "Square".
-
     Square(double side) : Rectangle(side, side) {
-
         name = "Square";
-
     }
-
     // Note: Square reuses Rectangle::area() — no need to rewrite it.
-
 };
-
 // ================================
-
 // FUNCTION IMPLEMENTATIONS
-
 // ================================
 
 // TODO 7: Sum the area() of every shape in the vector.
@@ -113,7 +79,6 @@ public:
 double totalArea(const std::vector<Shape*>& shapes) {
     double total = 0.0;
     for (const Shape* s : shapes) {
-
         total += s->area();
     }
     return total;
@@ -132,4 +97,3 @@ std::string largestShapeName(const std::vector<Shape*>& shapes) {
     }
     return largest->getName();
 }
- 
